@@ -21,6 +21,8 @@ pub trait Scalar: Clone + PartialEq + Debug + Any {
     }
 }
 
+impl<T: Clone + PartialEq + Debug + Any> Scalar for T {}
+
 impl<T: Copy + PartialEq + Debug + Any> Scalar for T {
     #[inline(always)]
     fn inlined_clone(&self) -> T {
